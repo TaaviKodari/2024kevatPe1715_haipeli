@@ -26,9 +26,14 @@ public class BulletPoolManager : MonoBehaviour
     }
 
     public GameObject GetBullet(){
-        GameObject bullet = bulletPool.Dequeue();
-        bullet.SetActive(true);
-        return bullet;
+        if(bulletPool.Count > 0)
+        {
+          GameObject bullet = bulletPool.Dequeue();
+            bullet.SetActive(true);
+            return bullet;
+        }
+
+        return null;
     } 
 
     public void ReturnBullet(GameObject bullet){

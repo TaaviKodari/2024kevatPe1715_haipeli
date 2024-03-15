@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public Transform gunTransform;
     public float moveSpeed = 5f;
 
     private Rigidbody2D body;
@@ -56,10 +57,12 @@ public class PlayerController : MonoBehaviour
     private void Shoot()
     {
         if(controls.Player.Fire.triggered){
-
             GameObject bullet = BulletPoolManager.Instance.GetBullet();
-            bullet.transform.position = transform.position;
-            bullet.transform.rotation = transform.rotation;
+            if(bullet == null){
+                return;
+            }
+            bullet.transform.position = gunTransform.position;
+            bullet.transform.rotation = gunTransform.rotation;
         }
     }
 }
