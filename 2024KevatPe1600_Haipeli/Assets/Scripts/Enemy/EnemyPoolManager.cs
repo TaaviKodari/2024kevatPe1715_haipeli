@@ -33,4 +33,9 @@ public class EnemyPoolManager : MonoBehaviour
         }
         return null;
     }
+
+    public void ReturnEnemy(GameObject enemy){
+        enemy.SetActive(false);
+        enemyPool.Enqueue(enemy);
+    }
 }
