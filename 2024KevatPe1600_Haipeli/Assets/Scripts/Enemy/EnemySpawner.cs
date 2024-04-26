@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +5,9 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public float spawnInterval = 2f;
+    public float spawnRadius = 10f;
 
+    private Transform playerTransform;
     private float nextSpawnTime;
     // Start is called before the first frame update
     void Start()
@@ -26,12 +27,23 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        
+        if(playerTransform == null){
+            GetPlayer();
+            return;
+        }
+
+        Vector2 spawnPos = playerTransform.position;
+        spawnPos += Random.insideUnitCircle.normalized * spawnRadius;
+
         GameObject enemy = EnemyPoolManager.Instance.GetEnemy();
         if(enemy != null){
-            enemy.transform.position = transform.position;
+            enemy.transform.position = spawnPos;
         }
 
         nextSpawnTime = Time.time + spawnInterval; 
+    }
+
+    void GetPlayer(){
+        playerTransform = GameManager.Instance.playerController.transform;
     }
 }
