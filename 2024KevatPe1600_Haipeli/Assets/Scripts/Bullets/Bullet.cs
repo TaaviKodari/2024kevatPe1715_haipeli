@@ -26,4 +26,13 @@ public class Bullet : MonoBehaviour
             BulletPoolManager.Instance.ReturnBullet(gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        IDamageable damageable = other.GetComponent<IDamageable>();
+        if(damageable != null){
+            damageable.TakeDamage(1);
+             BulletPoolManager.Instance.ReturnBullet(gameObject);
+        }
+    }
 }
