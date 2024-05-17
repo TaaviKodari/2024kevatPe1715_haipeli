@@ -374,9 +374,10 @@ GameObject:
   - component: {fileID: 1181930027}
   - component: {fileID: 1181930029}
   - component: {fileID: 1181930030}
+  - component: {fileID: 1181930031}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -484,6 +485,23 @@ MonoBehaviour:
   moveSpeed: 5
   sideSprite: {fileID: 21300000, guid: f0c9f857c685d4246b73f54f73fda19d, type: 3}
   topSprite: {fileID: 21300000, guid: 63cb67c84c6b3d34ebc7fc86357b3a75, type: 3}
+  maxHealth: 5
+--- !u!58 &1181930031
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181930026}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.29905772, y: -0.09062362}
+  serializedVersion: 2
+  m_Radius: 1.9165723
 --- !u!1 &1386864544
 GameObject:
   m_ObjectHideFlags: 0
